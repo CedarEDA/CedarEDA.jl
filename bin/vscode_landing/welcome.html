@@ -1,0 +1,315 @@
+<h1>Welcome to CedarEDA</h1>
+
+CedarEDA is a fresh approach to analog circuit
+simulation and verification. Thank you for
+being among the first users to adopt this new
+technology.
+
+<h2>Julia</h2>
+<p>
+<div>
+    <a href="command:language-julia.startREPL">Start REPL</a>
+</div>
+<div>
+    <a href="command:welcome.showNewFileEntries">New File</a>
+</div>
+<div>
+    <a href="command:REPLVariables.focus">Show Workspace</a>
+</div>
+<div>
+    <a href="${juliaSettingsCommand}">Settings</a>
+</div>
+<div>
+    <a href="command:workbench.action.openGlobalKeybindings">Keybindings</a>
+</div>
+</p>
+
+
+
+<p>
+<div>
+    <a href="https://docs.julialang.org/en/v1/">Julia Documentation</a>
+</div>
+<div>
+    <a href="https://www.julia-vscode.org/docs/stable/">Julia Extension Documentation</a>
+</div>
+</p>
+
+<h2>JuliaHub</h2>
+<div>
+    <a href="command:jh-submit.focus">Show JuliaHub connector</a>
+</div>
+<div>
+    <a href="https://help.juliahub.com/">JuliaHub Documentation</a>
+</div>
+
+
+<h2>Cedar Release Notes v0.4</h2>
+
+<h3>What's New?</h3>
+
+<h4>End-to-End Derivatives</h4>
+
+<p>
+Derivatives now extend to user-defined functions through
+Automatic Differentiation (AD), enhancing design insights and optimization reliability.
+</p>
+<p>
+Example in <code>examples (read-only)/Filter/RC/README.md</code> is an
+RC circuit that calculates the derivative of risetime relative to capacitance and
+verifies it versus the analytical solution vs time.
+</p>
+
+<h4>Optimization with Derivatives and Custom Cost Function</h4>
+
+<p>
+Derivative-aware optimizers enhance efficiency and convergence reliability
+by utilizing sensitivity information.
+Users can now define custom cost functions for tailored optimization strategies.
+</p>
+<p>
+Example in <code>examples (read-only)/07_impedance_matcher_sensitivity/README.md</code> is a
+simple model of a transmission line that optimizes impedance matching using a
+custom cost function.
+</p>
+
+
+<h4>AC Analysis Support</h4>
+
+<p>
+Introduced <code>ac!(sp)</code> function for AC analysis,
+enabling frequency response calculations through operating point solution and circuit linearization.
+</p>
+<p>
+Example in <code>examples (read-only)/01_butterworth/README.md</code> demonstrates using AC
+analysis for filter design.
+</p>
+
+<h4>DC Analysis Support</h4>
+
+<p>
+Implemented <code>dc!(sp)</code> function for a separate DC analysis,
+allowing multi-dimensional parameter sweeping.
+</p>
+<p>
+Example in <code>examples (read-only)/04_fac14/ota/M1_T/dc.jl</code> does a DC sweep of an
+Operation Transconductance Amplifier (OTA) from the FAC'14 set of testcases.
+</p>
+
+<h4>SPICE Feature Improvements</h4>
+
+Enhanced parser and support for additional constructs, including new
+<code>PULSE</code> source and math functions
+(<code>arctan</code>,
+ <code>asinh</code>,
+ <code>acosh</code>,
+ <code>atanh</code>,
+ <code>ln</code>,
+ <code>int</code>,
+ <code>floor</code>,
+ <code>ceil</code>,
+ <code>pow</code>).
+FAC14 test case coverage is about 50%. The major features remaining are dependent source types and reading in external Verilog-A files.
+
+<h4>Improved Signal Access</h4>
+
+<p>
+Interactive discovery of all possible saved signals from a simulation,
+accessible through the interactive terminal.
+This can be accessed via tabbing into the hierarchy as in <code>tran1.tran.R1.&lt;tab&gt;</code>
+which shows the names of the output variables associated with the top-level resistor <code>R1</code>.
+</p>
+
+<p>
+The <code>inspect(signal)</code> function was introduced for convenient signal
+or measurement plotting.
+By default a measure will show a scalar value and if it is underlined then it
+can be plotting with <code>inspect(measure_or_signal)</code>.
+</p>
+
+
+<h2>Cedar v0.3.0 Release Notes</h2>
+
+<h3>What's new?</h3>
+
+<h4>1. Improved start-up times by 2x to 10x</h4>
+
+<p>
+    The initial start-up time used to take between 7 to 30 minutes.
+    With the new release the times have been improved to 3 to 7 minutes.
+</p>
+
+<p>
+    The initial start-up time has been improved by reducing the images size,
+    using drives with hot caches, caching precompiled files.
+    The first start-up will be a litt slower as it has to cache files but future times
+    will be faster.
+</p>
+
+
+<h4>2. Removed confusing notifications</h4>
+
+<p>
+    Previously there would be about a dozen notifications in the task tray that
+    were confusing (for example,
+    <code>Your application running on port 8088 is available</code>).
+</p>
+<p>
+    There is still an unwanted notification that says <code>JuliaHub: Connecting...</code>
+    which will be removed in a future version.
+</p>
+
+<h4>3. Better Logging</h4>
+
+Log messages have been improved for each stage of the simulation process, such as:
+<ul>
+<li>Simulator version information</li>
+<li>CPU statistics</li>
+<li>Parsing information:</li>
+<ul>
+    <li>Name of parsed files</li>
+    <li>Ignored netlist statements</li>
+    <li>Device statistics</li>
+    <li>Netlist parameters with default values</li>
+</ul>
+<li>Compiling information</li>
+<li>Solver Information</li>
+<ul>
+    <li>Progress bar with ETA</li>
+    <li>Detailed stats for CPU/memory/time of each stage</li>
+</ul>
+<li>There is also a more vebose log file</li>
+</ul>
+
+<h4>
+4. End-to-end derivatives including all state variables
+</h4>
+
+Now any state variable can be selected for solving derivatives while
+previously only the simulator selected state variables were available.
+
+
+<h4>
+    5. New <code>examples (read-only)</code> folder
+</h4>
+
+The new examples folder will be auto-updated each release and the files
+are not editable.
+User's own work should go into a separate folder by dragging and dropping the folder
+while pressing the <code>Alt</code> key.
+
+<h3>Main Supported Features</h3>
+
+<p>This version of Cedar supports the following high-level features:</p>
+
+<ol>
+    <li>Support for the following netlist formats:</li>
+    <ol>
+        <li>SPICE</li>
+        <li>Spectre</li>
+        <li>Verilog-A</li>
+    </ol>
+    <li>Support for the following analysis types:</li>
+    <ol>
+        <li>DC</li>
+        <li>Tran</li>
+        <li>Tran sensitivity</li>
+    </ol>
+    <li>Support for the following device types:</li>
+    <ol>
+        <li>Resistor (<code>R</code>)</li>
+        <li>Capacitor (<code>C</code>)</li>
+        <li>Inductor (<code>L</code>)</li>
+        <li>Voltage source (<code>V</code>) of type DC, PWL, SIN</li>
+        <li>Current source (<code>I</code>) of type DC, PWL, SIN</li>
+        <li>MOSFET (<code>M</code>) of type BSIM4 or BSIM-CMG</li>
+    </ol>
+</ol>
+</li>
+
+<h3>Improvements coming next</h3>
+<ol>
+    <li>Parsing Spectre netlist improvements</li>
+    <li>Derivatives over measurements</li>
+    <li>Optimization example using derivatives</li>
+    <li>Simple sensitivity example to prove it matches analytical solution</li>
+</ol>
+
+<h3>Future Improvements</h3>
+<ol>
+    <li>Circuit fixes (Sky130 model fixes)</li>
+    <li>FAC'14 benchmarks</li>
+    <li>AC analysis</li>
+</ol>
+
+<h2>Quick Start - Butterworth Filter Example</h2>
+
+<h3>Introduction</h3>
+
+<p>
+In this guide, we will show you how to interact with the development environment
+and get started with CedarEDA.
+This interface is a web-based version of VSCode, hosted and served by JuliaHub.
+
+</p>
+<p>
+This circuit demonstrates a Butterworth filter of third order, implemented with two inductors, a capacitor and a resistor.
+The default parameter values are designed to give a cutoff frequency of 1 Hz, however with experimentation different cutoff
+ frequencies and step responses are achievable.
+</p>
+
+<p>
+In this circuit the input is a sinusoidal voltage source (with adjustable frequency) and the output is the filtered output,
+as shown in the attached circuit diagram.
+We expect for all parameter configurations for higher frequencies to have a lower amplitude, due to the nature of a lowpass filter.
+</p>
+
+<h3>Navigation</h3>
+
+
+<div>
+    <video src="https://help.juliahub.com/video/CedarEDA%20-%20Butterworth%20Navigation%20-%202023-08-22.mp4" width="640" autoplay="" loop="" controls="" muted="" title="CedarEDA - Navigation to Butterworth filter"></video>
+
+</div>
+
+
+<h3>Running the Simulation</h3>
+
+<p>
+    The Butterworth example loads a SPICE netlist and varies four of the SPICE <code>.parameters</code>, running 20736 simulations.
+    The simulation sweep takes about 1 minute to complete.
+</p>
+
+<p>
+    To run a complete script click the &#9205 button in the top right.
+    As the scripts runs, the commands are pasted into the julia Terminal (REPL) at the bottom of the window and executed:
+</p>
+
+<div>
+    <video src="https://help.juliahub.com/video/CedarEDA%20-%20Butterworth%20Run%20Script%20-%202023-08-22.mp4" width="640" autoplay="" loop="" controls="" muted="" title="CedarEDA - Run Butterworth filter"></video>
+</div>
+
+
+<p>
+At the end of the simulation, the results are displayed in the Julia REPL:
+</p>
+
+<h3>Plotting Parametric Results</h3>
+
+<p>
+The results can be plotted by clicking on the &#10003; or &#10060, as shown below:
+</p>
+
+<div>
+    <video src="https://help.juliahub.com/video/CedarEDA%20-%20Butterworth%20Run%20Results%20-%202023-08-22.mp4" width="640" autoplay="" loop="" controls="" muted="" title="CedarEDA - Run Results Butterworth filter"></video>
+
+</div>
+
+<h3>Exploring Parametric Results</h3>
+
+The results can be explored interactively by pressing <code>shift+enter</code> on the <code>explore(sm, tspan, sp)</code> line.
+In VSCode with the Julia extension <code>shift+enter</code> will run the currently selected line.
+
+<div>
+    <video src="https://help.juliahub.com/video/CedarEDA%20-%20Butterworth%20Explore%20-%202023-08-22.mp4" width="640" autoplay="" loop="" controls="" muted="" title="CedarEDA - Interactive Exploration Butterworth filter"></video>
+</div>

@@ -1,0 +1,68 @@
+steps:
+  - group: ":evergreen_tree: :electron: Cedar"
+    notify:
+      - github_commit_status:
+          context: "CedarEDA"
+    steps:
+      - label: ":evergreen_tree: Test the package"
+        key: runtests
+        env:
+          GITHUB_SSH_KEY: ${GITHUB_SSH_KEY?}
+          JULIA_NUM_THREADS: 8
+        plugins:
+          - staticfloat/ssh-agent:
+              keyvars:
+                - "GITHUB_SSH_KEY"
+          - JuliaCI/julia#v1:
+              version: "https://jc-cedarsim-juliabuilds.s3.amazonaws.com/vanilla/julia-latest-linux-x86_64.tar.gz"
+          - JuliaCI/julia-test#v1:
+              use_ssh: true
+              coverage: false
+              allow_reresolve: false
+              extra_registries: ssh://git@github.com/JuliaComputing/CedarEDARegistry.git,ssh://git@github.com/JuliaComputing/JuliaSimRegistry.git
+        agents:
+          os: "linux"
+          arch: "x86_64"
+        if: build.message !~ /\[skip tests\]/
+        timeout_in_minutes: 120
+
+#      - label: ":evergreen_tree: :construction_worker: Build system image"
+#        env:
+#          GITHUB_SSH_KEY: ${GITHUB_SSH_KEY?}
+#        soft_fail: true
+#        plugins:
+#          - staticfloat/ssh-agent:
+#              keyvars:
+#                - "GITHUB_SSH_KEY"
+#          - JuliaCI/julia#v1:
+#              version: "https://jc-cedarsim-juliabuilds.s3.amazonaws.com/vanilla/julia-latest-linux-x86_64.tar.gz"
+#          - JuliaCI/julia-test#v1:
+#              use_ssh: true
+#              run_tests: false
+#              extra_registries: ssh://git@github.com/JuliaComputing/CedarEDARegistry.git
+#          - staticfloat/sandbox#v1:
+#              rootfs_url: https://github.com/JuliaCI/rootfs-images/releases/download/v5.26/package_linux.x86_64.tar.gz
+#              rootfs_treehash: "5b0b851aca3c941b900a1301c13922c6cfc7f211"
+#              uid: 1000
+#              gid: 1000
+#              workspaces:
+#                - "/cache:/cache"
+#        commands: |
+#          echo "--- Build system image"
+#          julia --project=contrib/sysimage -e 'import Pkg; Pkg.instantiate()'
+#          julia --project=contrib/sysimage contrib/sysimage/build_sysimg.jl
+#
+#          echo "+++ Test system image"
+#          SYSIMG_PATH="$(compgen -G "contrib/sysimage/build/CedarEDA-v*.so")"
+#          echo "Time to load julia and use CedarEDA:"
+#          time julia -J "$${SYSIMG_PATH}" --project -e 'using CedarEDA'
+#
+#          echo "Size of $${SYSIMG_PATH}:"
+#          ls -lah "$${SYSIMG_PATH}"
+#        agents:
+#          os: "linux"
+#          arch: "x86_64"
+#        if: build.message !~ /\[skip tests\]/
+#        timeout_in_minutes: 120
+#        artifact_paths:
+#          - "contrib/sysimage/build/*"

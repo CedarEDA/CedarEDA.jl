@@ -1,0 +1,39 @@
+* A simple transmission line segment
+.subckt TransmissionLineSegment vin vout gnd
+* With these parameters, the characteristic Impedance
+* of an infinite transmission line should be sqrt(L/C)
+* or 50 Ω
+.param L=0.05n
+.param C=0.02p
+
+L1 vin vout 'L'
+C1 vout gnd 'C'
+.ends TransmissionLineSegment
+
+* A 10-element transmission line
+.subckt TenElementTransmissionLine vin vout gnd
+X1 vin sub1 gnd TransmissionLineSegment
+X2 sub1 sub2 gnd TransmissionLineSegment
+X3 sub2 sub3 gnd TransmissionLineSegment
+X4 sub3 sub4 gnd TransmissionLineSegment
+X5 sub4 sub5 gnd TransmissionLineSegment
+X6 sub5 sub6 gnd TransmissionLineSegment
+X7 sub6 sub7 gnd TransmissionLineSegment
+X8 sub7 sub8 gnd TransmissionLineSegment
+X9 sub8 sub9 gnd TransmissionLineSegment
+X10 sub9 vout gnd TransmissionLineSegment
+.ends TenElementTransmissionLine
+
+* A 100-element transmission line
+.subckt HundredElementTransmissionLine vin vout gnd
+X1 vin sub1 gnd TenElementTransmissionLine
+X2 sub1 sub2 gnd TenElementTransmissionLine
+X3 sub2 sub3 gnd TenElementTransmissionLine
+X4 sub3 sub4 gnd TenElementTransmissionLine
+X5 sub4 sub5 gnd TenElementTransmissionLine
+X6 sub5 sub6 gnd TenElementTransmissionLine
+X7 sub6 sub7 gnd TenElementTransmissionLine
+X8 sub7 sub8 gnd TenElementTransmissionLine
+X9 sub8 sub9 gnd TenElementTransmissionLine
+X10 sub9 vout gnd TenElementTransmissionLine
+.ends TenElementTransmissionLine

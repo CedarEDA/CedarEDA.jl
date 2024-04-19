@@ -1,0 +1,14 @@
+Copyright (c) JuliaHub, Inc. and contributors.
+
+This package is part of CedarEDA. CedarEDA is available under both open hardware and commercial licenses.
+
+1. If you obtained the Software pursuant to a commercial purchase and/or a separate JuliaHub License Agreement
+   that includes a commercial license and support services, you may use the Software as per terms and conditions
+   specified in the applicable JuliaHub License Agreement.
+
+2. If you do not have a valid JuliaHub License Agreement, you may use this software only under the terms of the
+   CERN-OHL-S v2 license (see LICENSE.CERN-OHL-S-V2 for license terms).
+
+3. At your option you may instead elect to use this package (but no other part of the Cedar EDA platform, unless
+   explicitly permitted by a license file included in such package) under the terms of the MIT license (see
+   LICENSE.MIT for license terms).

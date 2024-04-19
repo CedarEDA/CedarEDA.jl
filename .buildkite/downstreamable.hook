@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# This script is meant to be run in the context of other downstream projects;
+# it automates the pain of ensuring that the downstream projects are run with
+# the version of CedarEDA on the branch being tested.
+
+julia -e 'import Pkg; \
+          Pkg.setprotocol!(protocol="ssh"); \
+          Pkg.Registry.add([Pkg.Registry.RegistrySpec(url="ssh://git@github.com/JuliaComputing/CedarEDARegistry.git")]); \
+          Pkg.Registry.add([Pkg.Registry.RegistrySpec(url="ssh://git@github.com/JuliaComputing/JuliaSimRegistry.git")]); \
+          '
+
+JULIA_PKG_PRECOMPILE_AUTO=0 JULIA_PKG_USE_CLI_GIT=true \
+julia --project -e "import Pkg; Pkg.setprotocol!(protocol=\"ssh\"); Pkg.instantiate(); \
+                    Pkg.develop(path=\"${BUILDKITE_BUILD_CHECKOUT_PATH}\"); \
+                    Pkg.precompile();"
+

@@ -1,0 +1,60 @@
+*.SUBCKT gf180mcu_fd_sc_mcu7t5v0__dffnq_4 D CLKN Q VDD VNW VPW VSS
+
+* Negating buffer from D -> D_neg
+X_tn10 VSS D D_neg VPW nfet_06v0 W=3.6e-07 L=6e-07
+X_tp10 VDD D D_neg VNW pfet_06v0 W=4.95e-07 L=5e-07
+
+* Transmission gate switch between D_neg <--> D_neg_clked when cki is high
+X_tn11 D_neg cki D_neg_clked VPW nfet_06v0 W=3.6e-07 L=6e-07
+X_tp11 D_neg_clked ncki D_neg VNW pfet_06v0 W=4.95e-07 L=5e-07
+
+* Negating buffer from D_neg_clked -> Q_internal
+X_tn15 Q_internal D_neg_clked VSS VPW nfet_06v0 W=3.6e-07 L=6e-07
+X_tp15 Q_internal D_neg_clked VDD VNW pfet_06v0 W=4.95e-07 L=5e-07
+
+* latch recharge on Q_internal
+X_tn0 D_neg_clked ncki net11 VPW nfet_06v0 W=3.6e-07 L=6e-07
+X_tp0 net4 cki D_neg_clked VNW pfet_06v0 W=4.95e-07 L=5e-07
+X_tn1 VSS Q_internal net11 VPW nfet_06v0 W=3.6e-07 L=6e-07
+X_tp1 VDD Q_internal net4 VNW pfet_06v0 W=4.95e-07 L=5e-07
+
+* Transmission gate switch between Q_internal <--> net0 when cki is low
+X_tn2 net0 ncki Q_internal VPW nfet_06v0 W=3.6e-07 L=6e-07
+X_tp7 net0 cki Q_internal VNW pfet_06v0 W=4.95e-07 L=5e-07
+
+* Transmission gate switch between net0 <--> net7 when cki is high
+X_tn3 net7 cki net0 VPW nfet_06v0 W=3.6e-07 L=6e-07
+X_tp6 net7 ncki net0 VNW pfet_06v0 W=4.95e-07 L=5e-07
+
+* Negating buffer from net0 -> Q_neg
+X_tn5 Q_neg net0 VSS VPW nfet_06v0 W=9.45e-07 L=6e-07
+X_tp3 Q_neg net0 VDD VNW pfet_06v0 W=1.075e-06 L=5e-07
+
+* Negating buffer from net7 -> Q_neg (essentially Q*)
+X_tn4 VSS Q_neg net7 VPW nfet_06v0 W=9.45e-07 L=6e-07
+X_tp2 VDD Q_neg net7 VNW pfet_06v0 W=1.075e-06 L=5e-07
+
+
+
+* Parallel output stage for drive strength
+X_tn6_7    Q Q_neg VSS VPW nfet_06v0 W=8.2e-07 L=6e-07
+X_tn6      Q Q_neg VSS VPW nfet_06v0 W=8.2e-07 L=6e-07
+X_tn6_7_61 Q Q_neg VSS VPW nfet_06v0 W=8.2e-07 L=6e-07
+X_tn6_49   Q Q_neg VSS VPW nfet_06v0 W=8.2e-07 L=6e-07
+
+X_tp4_13    Q Q_neg VDD VNW pfet_06v0 W=10.95e-07 L=5e-07
+X_tp4       Q Q_neg VDD VNW pfet_06v0 W=10.95e-07 L=5e-07
+X_tp4_13_64 Q Q_neg VDD VNW pfet_06v0 W=10.95e-07 L=5e-07
+X_tp4_55    Q Q_neg VDD VNW pfet_06v0 W=10.95e-07 L=5e-07
+
+
+** Clock setup
+* Negating buffer from CLKN -> ncki
+X_tn9 ncki CLKN VSS VPW nfet_06v0 W=4.65e-07 L=6e-07
+X_tp9 ncki CLKN VDD VNW pfet_06v0 W=8.65e-07 L=5e-07
+
+* Negating buffer from ncki -> cki
+X_tn16 cki ncki VSS VPW nfet_06v0 W=4.65e-07 L=6e-07
+X_tp16 cki ncki VDD VNW pfet_06v0 W=8.65e-07 L=5e-07
+
+*.ENDS

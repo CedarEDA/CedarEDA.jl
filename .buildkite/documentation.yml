@@ -1,0 +1,36 @@
+steps:
+  - group: ":book: Documentation"
+    notify:
+      - github_commit_status:
+          context: "Documentation"
+    steps:
+      - label: ":construction: Build the documentation"
+        key: build-docs
+        env:
+          GITHUB_SSH_KEY: ${GITHUB_SSH_KEY?}
+          JULIA_NUM_THREADS: 8
+        plugins:
+          - staticfloat/ssh-agent:
+              keyvars:
+                - "GITHUB_SSH_KEY"
+          - JuliaCI/julia#v1:
+              version: "https://jc-cedarsim-juliabuilds.s3.amazonaws.com/vanilla/julia-latest-linux-x86_64.tar.gz"
+          - JuliaCI/julia-test#v1:
+              use_ssh: true
+              run_tests: false
+              extra_registries: ssh://git@github.com/JuliaComputing/CedarEDARegistry.git,ssh://git@github.com/JuliaComputing/JuliaSimRegistry.git
+        commands: |
+          export DOCUMENTER_KEY=$${GITHUB_SSH_KEY}
+          echo "+++ Building docs..."
+          julia --project=docs -e 'import Pkg; Pkg.instantiate()'
+          julia --project=docs docs/make.jl
+          tar cfz docs_build.tar.gz --directory=docs build/
+        artifact_paths:
+          - "docs_build.tar.gz"
+        if: build.message !~ /\[skip docs build\]/
+        concurrency: 1
+        concurrency_group: 'cedareda/docs_deploy'
+        timeout_in_minutes: 120
+        agents:
+          os: "linux"
+          arch: "x86_64"

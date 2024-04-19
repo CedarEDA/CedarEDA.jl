@@ -1,0 +1,10 @@
+
+simulator lang=spectre
+global 0
+parameters Iph=1 not_Iph=2.0
+
+V1 (VSRC 0) vsource dc=Iph type=pwl wave=[ 0 Iph .5 Iph 1.0 (2*Iph) 1.1 (2*Iph)]
+R1 (VSRC OUT) resistor r=1
+C13 (OUT 0) capacitor c=not_Iph
+
+tran tran stop=1

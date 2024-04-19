@@ -1,0 +1,17 @@
+steps:
+  - label: ":rocket: launch pipelines"
+    plugins:
+      # This gives us the SSH key that allows us to clone our private packages
+      - staticfloat/ssh-agent:
+          keyvars:
+            - "GITHUB_SSH_KEY"
+      - staticfloat/cryptic#v2:
+          unsigned_pipelines:
+            - .buildkite/runtests.yml
+            - .buildkite/downstream.yml
+            - .buildkite/documentation.yml
+    command: true
+    agents:
+      cryptic_capable: true
+    env:
+      CRYPTIC_ADHOC_SECRET_GITHUB_SSH_KEY: "WYRpXqU3RFp2QgnZTImtPF/dzxn67k8POJsi3mKCoU7zjxMuRUDuMg83k0D5JTvIDwryUjoCo7hn0jW1U6sLGx3VL0Zp9QE298h78s3o3F+GJi8h89VYWQpZe7DPtt/nPdirUSbhwEGIgNzhuOyaETYo7zNuSsqDd+MrVFxYXv6fEPd3PYPd69qzr8YQOnBW4FiG0wrgcNudvpU1e6pfbhZIqlKJ7+ABmEfd3u3tu9nmHisTPuSvy/64giU3iiU6ukC0li8GUqxOIlyLd45Qq8+scs5taAB1Bi52zY5zk6Qf22wIEObppc2xOYbR94u/vhcDc0orMdmI5P7KaE633Q==;U2FsdGVkX1+NGBTV8eKIxQ1HLVQRqQ6qHYy304OcJl6acDoEj53l4UOPbNA5gvgyQQdG4bo5aCiz0pamKuK05xcTSNJhGCq2YMPrT/lU4y0yfMs1kprCQqWCkgfCJtPHZJjnsBnX7B4jdQOoQ6pyE1dtN5pNMrsegszQ838R6otTJPa5s73itMzS5CC0lp4yDgSYOcAdmsSTfHDOZp858TGlNANEa2L+WUI/YYvrdFO7xxU3RBcoP50R9KBlfyjqPFmzm/aYmIOPw2KBvOxMAJmHu+KhhGUgCm8qOP+gTytsYdmeEGKAFSsjtiXvI7ubEkGW+rD7Q7MB1ZZdX4DrxsL70Guv3DrTZyM3zt+0FOQsDiaCjrQ/puS53SfJSXhoGeFYatbqKc7I0IXh8rka3JBea4Uu9ByRWnmWDAf5Qrc+TvD6MD6ssWeL/OaRQdnxft19rnfiPSFa3gkQfTf2WsVxFAGmsXkEz5xUeeMDpx2WqbpEL7q8XP+wlfPHiu1mIjiFLhUvM4wcTSJL7Qvr2ssnC5rwwpvDAIsEZZahAcAGicZs9/AJXGkm/jygpBiynVjjOEPu4OdhFGWIgTJlhFv+RZRgrZQncHiMJNmsGs9ufBo0fR1Eca/oo98m8DEmkZ2cPU9zMM3UkJkNpOGlCN25USUx6bUCiR66Bv+RIAZCHWdnTXDr2YbYk4Bh6Iyo5QtUiGNclURkqO6k7PslMUpqBu0vW59CZLBXPxU+Du3DXZ6ED0eKVmiZrC/mKEM8lIcLSPGvUdHLRPMIEWldCzlgy/OtHXbZu9GkOgLFKdMyFRU6SbYcPoOVBWh3V6zAg+eeDMUqVi092ow3rcIaOSQ2+hMmUfwtfNsx7462jHGXfHP7jS3AiQ1JS+QqwRPLhMLGxiHJpwTcyytVyU5ktxdf28OM4B8aJto+xDwLkQrDI1kTLfQbgBqCbA5nXQDLdQfRHgJZtEZPcBzv7OdMWKmiBGwGWSKVpiHeUvmBVICx0LknGAOioL/SQ6i+puLJ"

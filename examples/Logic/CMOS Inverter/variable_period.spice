@@ -1,0 +1,19 @@
+* AM period MOSFET test
+
+* Include the GF180MDU PDK, which is registered as a Julia package.
+.LIB "jlpkg://GF180MCUPDK/sm141064.ngspice" typical
+
+* Create a pulse source and a SIN noise source at a prime frequency
+V1   fast_osc        0 PULSE(0 5 0 5u 5u 490u 1000u)
+V2   comb_osc fast_osc SIN(0 0.1 10.141592653589793)
+R1 comb_osc vin 100
+
+VVDD vdd 0 5.0
+VVSS vss 0 0.0
+
+* Feed the oscillators into a CMOS inverter
+Xpos vdd vin vout vdd pfet_06v0 W=4.95e-07 L=5e-07
+Xneg vss vin vout vss nfet_06v0 W=3.6e-07 L=6e-07
+R2 vout 0 1000000
+
+.tran 10u 1000m

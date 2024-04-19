@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 359 239" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;">
+    <g transform="matrix(1.01816,0,0,1.05162,-6.51941,-6.57117)">
+        <rect x="6.403" y="6.249" width="352.597" height="227.268" style="fill:rgb(235,235,235);"/>
+    </g>
+    <g id="cell_-not-gf180mcu_fd_sc_mcu7t5v0__dffnq.v:0-1" serif:id="cell_$not$gf180mcu_fd_sc_mcu7t5v0__dffnq.v:0$1" transform="matrix(1,0,0,1,86,77)">
+        <path d="M0,0L0,20L20,10L0,0Z" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1px;"/>
+        <circle cx="24" cy="10" r="3" style="fill:none;stroke:black;stroke-width:1px;"/>
+    </g>
+    <g id="cell_-not-gf180mcu_fd_sc_mcu7t5v0__dffnq.v:0-2" serif:id="cell_$not$gf180mcu_fd_sc_mcu7t5v0__dffnq.v:0$2" transform="matrix(1,0,0,1,86,142)">
+        <path d="M0,0L0,20L20,10L0,0Z" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1px;"/>
+        <circle cx="24" cy="10" r="3" style="fill:none;stroke:black;stroke-width:1px;"/>
+    </g>
+    <g id="cell_-not-gf180mcu_fd_sc_mcu7t5v0__dffnq.v:0-3" serif:id="cell_$not$gf180mcu_fd_sc_mcu7t5v0__dffnq.v:0$3" transform="matrix(1,0,0,1,252,57)">
+        <path d="M0,0L0,20L20,10L0,0Z" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1px;"/>
+        <circle cx="24" cy="10" r="3" style="fill:none;stroke:black;stroke-width:1px;"/>
+    </g>
+    <g id="cell_x0" transform="matrix(1,0,0,1,178,56.5)">
+        <rect x="0" y="0" width="30" height="100" style="fill:none;stroke:black;stroke-width:1px;"/>
+        <g transform="matrix(1,0,0,1,-3,6)">
+            <g id="port_x0-C" serif:id="port_x0~C">
+                <text x="-6.001px" y="0px" style="font-family:'CourierNewPS-BoldMT', 'Courier New', monospace;font-weight:700;font-size:10px;">C</text>
+            </g>
+        </g>
+        <g transform="matrix(1,0,0,1,-3,26)">
+            <g id="port_x0-CK" serif:id="port_x0~CK">
+                <text x="-12.002px" y="0px" style="font-family:'CourierNewPS-BoldMT', 'Courier New', monospace;font-weight:700;font-size:10px;">CK</text>
+            </g>
+        </g>
+        <g transform="matrix(1,0,0,1,-3,46)">
+            <g id="port_x0-D" serif:id="port_x0~D">
+                <text x="-6.001px" y="0px" style="font-family:'CourierNewPS-BoldMT', 'Courier New', monospace;font-weight:700;font-size:10px;">D</text>
+            </g>
+        </g>
+        <g transform="matrix(1,0,0,1,-3,66)">
+            <g id="port_x0-N" serif:id="port_x0~N">
+                <text x="-6.001px" y="0px" style="font-family:'CourierNewPS-BoldMT', 'Courier New', monospace;font-weight:700;font-size:10px;">N</text>
+            </g>
+        </g>
+        <g transform="matrix(1,0,0,1,-3,86)">
+            <g id="port_x0-P" serif:id="port_x0~P">
+                <text x="-6.001px" y="0px" style="font-family:'CourierNewPS-BoldMT', 'Courier New', monospace;font-weight:700;font-size:10px;">P</text>
+            </g>
+        </g>
+        <g transform="matrix(1,0,0,1,35,6)">
+            <g id="port_x0-Q" serif:id="port_x0~Q">
+                <text x="0px" y="0px" style="font-family:'CourierNewPS-BoldMT', 'Courier New', monospace;font-weight:700;font-size:10px;">Q</text>
+            </g>
+        </g>
+    </g>
+    <g id="cell_CLKN" transform="matrix(1,0,0,1,12,77)">
+        <g transform="matrix(1,0,0,1,15,-4)">
+            <text x="-12.002px" y="0px" style="font-family:'CourierNewPS-BoldMT', 'Courier New', monospace;font-weight:700;font-size:10px;">CLKN</text>
+        </g>
+        <path d="M0,0L0,20L15,20L30,10L15,0L0,0Z" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1px;"/>
+    </g>
+    <g id="cell_D" transform="matrix(1,0,0,1,12,142)">
+        <g transform="matrix(1,0,0,1,15,-4)">
+            <text x="-3px" y="0px" style="font-family:'CourierNewPS-BoldMT', 'Courier New', monospace;font-weight:700;font-size:10px;">D</text>
+        </g>
+        <path d="M0,0L0,20L15,20L30,10L15,0L0,0Z" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1px;"/>
+    </g>
+    <g id="cell_Q" transform="matrix(1,0,0,1,317,57)">
+        <g transform="matrix(1,0,0,1,15,-4)">
+            <text x="-3px" y="0px" style="font-family:'CourierNewPS-BoldMT', 'Courier New', monospace;font-weight:700;font-size:10px;">Q</text>
+        </g>
+        <path d="M30,0L30,20L15,20L0,10L15,0L30,0Z" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1px;"/>
+    </g>
+    <g id="cell_notifier" transform="matrix(1,0,0,1,77,207)">
+        <g transform="matrix(1,0,0,1,15,-4)">
+            <text x="-21.003px" y="0px" style="font-family:'CourierNewPS-BoldMT', 'Courier New', monospace;font-weight:700;font-size:10px;">notiﬁer</text>
+        </g>
+        <path d="M0,0L0,20L15,20L30,10L15,0L0,0Z" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1px;"/>
+    </g>
+    <g id="cell_0" transform="matrix(1,0,0,1,77,22)">
+        <g transform="matrix(1,0,0,1,15,-4)">
+            <text x="-3px" y="0px" style="font-family:'CourierNewPS-BoldMT', 'Courier New', monospace;font-weight:700;font-size:10px;">0</text>
+        </g>
+        <rect x="0" y="0" width="30" height="20" style="fill:none;stroke:black;stroke-width:1px;"/>
+    </g>
+    <path d="M42,87L85,87" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1px;stroke-linecap:round;"/>
+    <path d="M42,152L85,152" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1px;stroke-linecap:round;"/>
+    <path d="M209,67L251,67" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1px;stroke-linecap:round;"/>
+    <path d="M108,32L155,32" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1px;stroke-linecap:round;"/>
+    <path d="M155,32L155,67" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1px;stroke-linecap:round;"/>
+    <circle cx="155" cy="67" r="2" style="stroke:black;stroke-width:1px;"/>
+    <path d="M155,67L178,67" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1px;stroke-linecap:round;"/>
+    <path d="M108,32L155,32" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1px;stroke-linecap:round;"/>
+    <path d="M155,32L155,147" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1px;stroke-linecap:round;"/>
+    <path d="M155,147L178,147" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1px;stroke-linecap:round;"/>
+    <path d="M113,87L178,87" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1px;stroke-linecap:round;"/>
+    <path d="M113,152L135,152" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1px;stroke-linecap:round;"/>
+    <path d="M135,152L135,107" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1px;stroke-linecap:round;"/>
+    <path d="M135,107L178,107" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1px;stroke-linecap:round;"/>
+    <path d="M107,217L145,217" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1px;stroke-linecap:round;"/>
+    <path d="M145,217L145,127" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1px;stroke-linecap:round;"/>
+    <path d="M145,127L178,127" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1px;stroke-linecap:round;"/>
+    <path d="M279,67L317,67" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1px;stroke-linecap:round;"/>
+</svg>

@@ -1,0 +1,24 @@
+* Impedance matcher hooked up to transmission line
+
+* Test using a sinusoidal excitation at 100MHz
+V1 vsin 0 SIN(0, 1, 100Meg)
+
+Rsrc vsin vsrc 250
+
+* Create a small impedance matching network
+* With a source impedance of 250Ω, and a load impedance of 50Ω,
+* the ideal parameters are `l_match = 159.2nH`, `c_match = 12.73pF`.
+.param l_match=0.0
+.param c_match=0.0
+Lmatch vsrc vin 'L_match'
+Cmatch vsrc 0 'C_match'
+
+* Include our transmission line helpers
+.INCLUDE "./transmission_line.spice"
+
+* Create our 10-element transmission line, hook it up
+* to our dummy load of a 50 Ohm resistor
+Xtl vin vout 0 TenElementTransmissionLine
+
+Rload vout 0 50
+

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cedar v0.3.0 Release Notes</title>
+</head>
+<body>
+<h1>Cedar v0.3.0 Release Notes</h1>
+
+<h2>What's new?</h2>
+
+<h3>1. Improved start-up times by 2x to 10x</h3>
+
+<p>
+    The initial start-up time used to take between 7 to 30 minutes.
+    With the new release the times have been improved to 3 to 7 minutes.
+</p>
+
+<p>
+    The initial start-up time has been improved by reducing the images size,
+    using drives with hot caches, caching precompiled files.
+    The first start-up will be a litt slower as it has to cache files but future times
+    will be faster.
+</p>
+
+
+<h3>2. Removed confusing notifications</h3>
+
+<p>
+    Previously there would be about a dozen notifications in the task tray that
+    were confusing (for example,
+    <code>Your application running on port 8088 is available</code>).
+</p>
+<p>
+    There is still an unwanted notification that says <code>JuliaHub: Connecting...</code>
+    which will be removed in a future version.
+</p>
+
+<h3>3. Better Logging</h3>
+
+Log messages have been improved for each stage of the simulation process, such as:
+<ul>
+<li>Simulator version information</li>
+<li>CPU statistics</li>
+<li>Parsing information:</li>
+<ul>
+    <li>Name of parsed files</li>
+    <li>Ignored netlist statements</li>
+    <li>Device statistics</li>
+    <li>Netlist parameters with default values</li>
+</ul>
+<li>Compiling information</li>
+<li>Solver Information</li>
+<ul>
+    <li>Progress bar with ETA</li>
+    <li>Detailed stats for CPU/memory/time of each stage</li>
+</ul>
+<li>There is also a more vebose log file</li>
+</ul>
+
+<h3>
+4. End-to-end derivatives including all state variables
+</h3>
+
+Now any state variable can be selected for solving derivatives while
+previously only the simulator selected state variables were available.
+
+
+<h3>
+    5. New <code>examples (read-only) folder</code>
+</h3>
+
+The new examples folder will be auto-updated each release and the files
+are not editable.
+User's own work should go into a separate folder by dragging and dropping the folder
+while pressing the <code>Alt</code> key.
+
+<h2>Main Supported Features</h2>
+
+<p>This version of Cedar supports the following high-level features:</p>
+
+<ol>
+    <li>Support for the following netlist formats:</li>
+    <ol>
+        <li>SPICE</li>
+        <li>Spectre</li>
+        <li>Verilog-A</li>
+    </ol>
+    <li>Support for the following analysis types:</li>
+    <ol>
+        <li>DC</li>
+        <li>Tran</li>
+        <li>Tran sensitivity</li>
+    </ol>
+    <li>Support for the following device types:</li>
+    <ol>
+        <li>Resistor (R)</li>
+        <li>Capacitor (C)</li>
+        <li>Inductor (L)</li>
+        <li>Voltage source (V) of type DC, PWL, SIN</li>
+        <li>Current source (I) of type DC, PWL, SIN</li>
+        <li>MOSFET (m) of type BSIM4 or BSIM-CMG</li>
+    </ol>
+</ol>
+</li>
+
+<h2>Improvements coming next</h2>
+<ol>
+    <li>Parsing Spectre netlist improvements</li>
+    <li>Derivatives over measurements</li>
+    <li>Optimization example using derivatives</li>
+    <li>Simple sensitivity example to prove it matches analytical solution</li>
+</ol>
+
+<h2>Future Improvements</h2>
+<ol>
+    <li>Circuit fixes (Sky130 model fixes)</li>
+    <li>FAC'14 benchmarks</li>
+    <li>AC analysis</li>
+</ol>
+</body>
+</html>

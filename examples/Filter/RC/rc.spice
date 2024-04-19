@@ -1,0 +1,9 @@
+* A simple RC circuit, 1 resistor attached to one capacitor
+* Stimulus is a square wave
+
+.param r=0.2 c=0.5
+V1 vin 0 DC 0 AC 1 PULSE(0 1 0 50u 50u 0.9999 2)
+RR vin vout 'r'
+CC vout 0 'c'
+
+.end

@@ -1,0 +1,39 @@
+* Third order low pass filter, butterworth, with cutoff frequency (fc) = 10 MHz
+
+* Create a third-order Butterworth filter, according to https://en.wikipedia.org/wiki/Butterworth_filter#Example
+* The circuit diagram is:
+*
+*  ┌─L1─┬─L3─┬── +
+*  V    C2   R4
+*  └────┴────┴── -
+*
+* We take the simple example, with values:
+*  L1 = 1.20 nH
+*  C2 =  430 pF
+*  L3 =  390 nH
+*  R4 =   50 Ω
+*
+* This yields a transfer function of:
+*   H(s) = 1/(R1 + (L1+L3)*s + (L1*C2*R4)*s^2 + (L1*C2*L3)*s^3)
+*
+* The magnitude of the steady-state response:
+*   G(f) = abs(H(2π*f*im))
+* so at f=10 MHz we should get 1/2 gain
+*
+* If we drive this system with a (one-sided) sinusoidal input of frequency 10 MHz, we obtain the following Laplace transform:
+*   H(s) = ωₒ/(s^2 + ωₒ^2) * 1/(1 + s/ωₒ + (s/ωₒ)^2 + (s/ωₒ)^3)
+*
+* where ωₒ = 1e7*2π. This corresponds to a time-domain solution via the inverse laplace transform of:
+*   vout(t) = (e^(-ωₒt) - sin(ωₒt) - cos(ωₒt))/2 + (2 * sin((sqrt(3) * ωₒt)/2))/(sqrt(3) * sqrt(e^(ωₒt)))
+*
+.param L1=1.2n
+.param C2=430p
+.param L3=390n
+.param R4=50
+.param freq=10MEG
+
+V1 vin 0 AC=1 SIN(0 1 'freq')
+LL1 vin n1 'L1'
+CC2 n1 0 'C2'
+LL3 n1 vout 'L3'
+RR4 vout 0 'R4'

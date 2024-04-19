@@ -1,0 +1,74 @@
+* gf180mcu dff test bench
+*.GLOBAL VDD
+*.GLOBAL VSS
+.param VDD=5.0 VSS=0.0
+.param cload=2p $ load capacitance
+.param period=100n $ period
+.param risetime='period/50' $ 0 to 100% risetime
+.param falltime='period/50' $ 100% to 0% falltime
+
+.OPTION gmin=1e-15
+
+* Include the GF180MDU PDK, which is registered as a Julia package.
+.LIB "jlpkg://GF180MCUPDK/sm141064.ngspice" typical
+
+* Include the particular cell we're interested in.
+* While this is available in the PDK, we include it
+* here with more comments explaining what each transistor is for.
+.INCLUDE "gf180mcu_fd_sc_mcu7t5v0__dffnq_4.ngspice"
+
+VVDD VDD 0 'VDD'
+VVSS VSS 0 'VSS'
+
+*XDUT D CLKN Q VDD VNW VPW VSS gf180mcu_fd_sc_mcu7t5v0__dffnq_4
+
+CQ Q_tmp 0 'cload'
+* Current probe source
+VQ Q Q_tmp 0.0
+VNW VNW VDD 'VSS'
+VPW VPW VSS 'VSS'
+
+.param cglitch=2p
+c1glitch D Q 'cglitch'
+c2glitch CLKN Q 'cglitch'
+
+* NOTE: Elliot added an extra clock falling edge at 50ns
+* in order to get rid of the initial metastability before
+* the first clock pulse of interest.
+*RCLKN CLKN_ CLKN 50
+VCLKN CLKN 0 PWL(
++ '0*period'            'VDD'
++ '1*period'            'VDD'
++ '1*period+falltime'   'VSS'
++ '2*period'            'VSS'
++ '2*period+risetime'   'VDD'
++ '8*period'            'VDD'
++ '8*period+falltime'   'VSS'
++ '10*period'           'VSS'
++ '10*period+risetime'  'VDD'
++ '12*period'           'VDD'
++ '12*period+falltime'  'VSS'
++ '14*period'           'VSS'
++ '14*period+risetime'  'VDD'
++ '16*period'           'VDD'
++ '16*period+falltime'  'VSS'
++ '18*period'           'VSS'
++ )
+
+*RD D_ D 50
+VD D 0 PWL(
++ '0*period'            'VSS'
++ '4*period'            'VSS'
++ '4*period+risetime'   'VDD'
++ '6*period'            'VDD'
++ '6*period+falltime'   'VSS'
++ '8*period'            'VSS'
++ '8*period+risetime'   'VDD'
++ '13*period'           'VDD'
++ '13*period+risetime'  'VSS'
++ '18*period'           'VSS'
++ )
+
+.TRAN 0.01n 1800n
+
+.END

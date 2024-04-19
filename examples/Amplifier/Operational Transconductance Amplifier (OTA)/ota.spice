@@ -1,0 +1,45 @@
+* A two stage Operational Transconductance Amplifier
+*
+* Copyright: (c) 2014 Lars Hedrich, Felix Salfelder
+* Author: Lars Hedrich
+* License: CC-BY-SA
+
+.include PTM_180nm_bulk.mod
+
+.SUBCKT ota nout ninp ninn vdd gnd
+RBIAS 2 gnd 100
+MP1B 2 2 vdd vdd PMOS l=3.81e-06 w=3.79e-05
+MP1 1 2 vdd vdd PMOS l=3.81e-06 w=3.79e-05
+MP2 diff_a ninn 1 vdd PMOS l=3.81e-06 w=4.8e-04
+MP4 second second vdd vdd PMOS l=1.03e-06 w=2.34e-05
+MP5 nout second vdd vdd PMOS l=1.03e-06  w=2.34e-05
+MN4 second diff_a gnd gnd NMOS l=1e-06 w=2.94e-05
+MN2 nout 3 gnd gnd NMOS l=1e-06 w=2.94e-05
+MN1 3 3 gnd gnd NMOS l=1e-06 w=1.23e-05
+MN3 diff_a diff_a gnd gnd NMOS l=1e-06 w=1.23e-05
+MP3 3 ninp 1 vdd PMOS l=3.81e-06 w=4.8e-04
+.ends ota
+
+* OTA testbench, closed loop
+*
+* Copyright: (c) 2014 Lars Hedrich, Felix Salfelder
+* Author: Felix Salfelder
+* License: CC-BY-SA
+
+.param rload=50e3 cload=2e-12 pv1=3.3
+
+X1 nout ninop nout vdd 0 ota
+V1 ninp nmid dc='pv1' sin 0 2 2e7 0
+
+Vvdd vdd 0 3.3
+Rl nout nmid 'rload'
+Cl nout nmid 'cload'
+Rq ninp ninop 1000
+Vmid nmid 0 1.65
+
+
+
+.print tran v(ninp) v(nout)
+.tran .008u .08u
+.print dc v(ninp) v(nout)
+.dc v1 0 1 .1

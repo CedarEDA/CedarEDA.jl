@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Circuit Diagram, cdlibrary.dll 4.0.0.0 -->
+
+<svg
+   version="1.1"
+   width="540.21143"
+   height="243.33316"
+   id="svg52"
+   sodipodi:docname="rc.svg"
+   inkscape:export-filename="/home/oxinabox/JuliaEnvs/CedarEDA2/examples/rc_measurement_sensitivity/images/rc.png"
+   inkscape:export-xdpi="193.52423"
+   inkscape:export-ydpi="193.52423"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="white"/>
+  <defs
+     id="defs56" />
+  <sodipodi:namedview
+     id="namedview54"
+     pagecolor="#ffffff"
+     bordercolor="#111111"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     showgrid="false"
+     lock-margins="false"
+     fit-margin-top="40"
+     fit-margin-left="100"
+     fit-margin-right="100"
+     fit-margin-bottom="40"
+     inkscape:zoom="0.385"
+     inkscape:cx="-110.38961"
+     inkscape:cy="-146.75325"
+     inkscape:window-width="1383"
+     inkscape:window-height="970"
+     inkscape:window-x="2005"
+     inkscape:window-y="687"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg52" />
+  <text
+     x="99.500488"
+     y="141.91895"
+     style="font-size:11px;font-family:Arial;text-anchor:start"
+     dominant-baseline="middle"
+     id="text2">1s 1v, 1s 0v</text>
+  <text
+     x="99.500488"
+     y="121.91894"
+     style="font-size:11px;font-family:Arial;text-anchor:start"
+     dominant-baseline="middle"
+     id="text4">Square wave,</text>
+  <text
+     x="159.50049"
+     y="71.918938"
+     style="font-size:11px;font-family:Arial;text-anchor:start"
+     dominant-baseline="middle"
+     id="text6">vin</text>
+  <text
+     x="419.50049"
+     y="71.918938"
+     style="font-size:11px;font-family:Arial;text-anchor:start"
+     dominant-baseline="middle"
+     id="text8">vout</text>
+  <line
+     x1="189.50049"
+     y1="71.918938"
+     x2="189.50049"
+     y2="111.91894"
+     style="stroke:#000000;stroke-width:2;stroke-linecap:square"
+     id="line10" />
+  <line
+     x1="189.50049"
+     y1="181.91895"
+     x2="409.50049"
+     y2="181.91895"
+     style="stroke:#000000;stroke-width:2;stroke-linecap:square"
+     id="line12" />
+  <line
+     x1="189.50049"
+     y1="141.91895"
+     x2="189.50049"
+     y2="191.91895"
+     style="stroke:#000000;stroke-width:2;stroke-linecap:square"
+     id="line14" />
+  <line
+     x1="189.50049"
+     y1="71.918938"
+     x2="279.50049"
+     y2="71.918938"
+     style="stroke:#000000;stroke-width:2;stroke-linecap:square"
+     id="line16" />
+  <line
+     x1="319.50049"
+     y1="71.918938"
+     x2="409.50049"
+     y2="71.918938"
+     style="stroke:#000000;stroke-width:2;stroke-linecap:square"
+     id="line18" />
+  <path
+     d="m 279.50049,71.918942 h 2 l 3,-7 6,14 6,-14 6,14 6,-14 6,14 3,-7 h 2"
+     style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:2;stroke-linecap:square"
+     id="path20" />
+  <text
+     x="299.50049"
+     y="57.918945"
+     style="font-size:11px;font-family:Arial;text-anchor:middle"
+     dominant-baseline="baseline"
+     id="text22">0.2 Ω</text>
+  <text
+     x="299.50049"
+     y="45.918945"
+     style="font-size:11px;font-family:Arial;text-anchor:middle"
+     dominant-baseline="baseline"
+     id="text24">r</text>
+  <line
+     x1="189.50049"
+     y1="191.91895"
+     x2="189.50049"
+     y2="193.91895"
+     style="stroke:#000000;stroke-width:2;stroke-linecap:square"
+     id="line26" />
+  <path
+     d="m 181.50049,193.91894 h 16 l -8,8 -8,-8"
+     style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:2;stroke-linecap:square"
+     id="path28" />
+  <line
+     x1="409.50049"
+     y1="71.918938"
+     x2="409.50049"
+     y2="122.91894"
+     style="stroke:#000000;stroke-width:2;stroke-linecap:square"
+     id="line30" />
+  <line
+     x1="409.50049"
+     y1="130.91895"
+     x2="409.50049"
+     y2="181.91895"
+     style="stroke:#000000;stroke-width:2;stroke-linecap:square"
+     id="line32" />
+  <line
+     x1="395.50049"
+     y1="122.91894"
+     x2="423.50049"
+     y2="122.91894"
+     style="stroke:#000000;stroke-width:2;stroke-linecap:square"
+     id="line34" />
+  <line
+     x1="395.50049"
+     y1="130.91895"
+     x2="423.50049"
+     y2="130.91895"
+     style="stroke:#000000;stroke-width:2;stroke-linecap:square"
+     id="line36" />
+  <text
+     x="389.50049"
+     y="132.91895"
+     style="font-size:11px;font-family:Arial;text-anchor:end"
+     dominant-baseline="middle"
+     id="text38">500 mF</text>
+  <text
+     x="389.50049"
+     y="120.91894"
+     style="font-size:11px;font-family:Arial;text-anchor:end"
+     dominant-baseline="middle"
+     id="text40">c</text>
+  <line
+     x1="189.50049"
+     y1="121.91894"
+     x2="189.50049"
+     y2="110.91894"
+     style="stroke:#000000;stroke-width:2;stroke-linecap:square"
+     id="line42" />
+  <ellipse
+     cx="189.50049"
+     cy="126.91894"
+     style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:2"
+     id="ellipse44"
+     r="16" />
+  <line
+     x1="189.50049"
+     y1="142.91895"
+     x2="189.50049"
+     y2="131.91895"
+     style="stroke:#000000;stroke-width:2;stroke-linecap:square"
+     id="line46" />
+  <path
+     d="m 189.50049,126.91894 m 0,-10 v 8 m -4,-4 h 8 m -8,14 h 8"
+     style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:2;stroke-linecap:square"
+     id="path48" />
+  <ellipse
+     cx="189.50049"
+     cy="181.91895"
+     style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2"
+     id="ellipse50"
+     r="2" />
+</svg>

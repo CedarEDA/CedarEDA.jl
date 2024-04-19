@@ -1,0 +1,18 @@
+* amplifier parameter sensitivity test
+
+.param bias_current = 400u
+
+m1 vout in 0 0 nfet_03v3 L=1u W=69.985u
+m2 vout ibias vdd vdd pfet_03v3 L=0.28u W=100u
+m3 ibias ibias vdd vdd pfet_03v3 L=0.28u W=100u
+
+ibias  ibias 0 bias_current
+cl     vout   0 7pF
+
+vdd vdd 0 1.8
+vin in  0 sin(0.9600 0.01 100k)
+
+.LIB "jlpkg://GF180MCUPDK/sm141064.ngspice" typical
+
+.TRAN 1e-9 2.0e-5
+.END

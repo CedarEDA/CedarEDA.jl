@@ -1,0 +1,26 @@
+steps:
+  - wait: ~
+    depends_on: runtests
+
+  - group: ":evergreen_tree: Downstream"
+    notify:
+      - github_commit_status:
+          context: "Downstream"
+    steps:
+      - label: ":runner: CedarTestcases.jl"
+        env:
+          GITHUB_SSH_KEY: ${GITHUB_SSH_KEY?}
+        plugins:
+          - staticfloat/ssh-agent:
+              keyvars:
+                - "GITHUB_SSH_KEY"
+        commands: |
+          echo "--- Clone CedarTestcases.jl"
+          git clone git@github.com:JuliaComputing/CedarTestcases.jl.git CedarTestcases.jl
+
+          # Bootstrap the CedarTestcases dynamic job list
+          cd CedarTestcases.jl
+          buildkite-agent pipeline upload .buildkite/pipeline.yml
+        agents:
+          os: "linux"
+          arch: "x86_64"
